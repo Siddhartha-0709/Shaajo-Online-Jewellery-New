@@ -10,6 +10,8 @@ import Upload from './components/Upload';
 import Checkout from './components/Checkout';
 import Track from './components/Track';
 import Detailsorder from './components/Detailsorder';
+import { Analytics } from '@vercel/analytics/react';
+
 function App() {
   return (
     <>

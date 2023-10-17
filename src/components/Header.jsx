@@ -12,14 +12,22 @@ function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
           <span>
+            <Link
+            to={"/"}
+            >
             <img
               alt="logo"
               className="rounded-lg object-cover lg:block"
               src={logo}
               style={{height:50, width:50}}
             />
+            </Link>
           </span>
-          <span className="font-bold">Shaajo's Creation</span>
+          <Link
+          to={"/"}
+          >
+            <span className="font-bold">Shaajo's Creation</span>
+          </Link>
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">
@@ -55,14 +63,7 @@ function Header() {
                 Privacy Policy
               </Link>
             </li>
-            <li>
-              <Link
-                to="/upload"
-                className="text-sm font-semibold text-gray-800 hover:text-gray-900"
-              >
-                Product Upload
-              </Link>
-            </li>
+
           </ul>
         </div>
         <div className="hidden lg:block">

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import Header from './Header';
 import { initializeApp } from 'firebase/app';
 import { ref, getDatabase, onValue } from "firebase/database";
+import { Analytics } from '@vercel/analytics/react';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAK_RWW5YNc6_nCDkJVURDFOmy9lxWyHYE",
@@ -144,6 +145,7 @@ function Home() {
     return (
         <>
             <Header />
+            <Analytics />
             <section className="w-full">
                 <div className="mx-auto max-w-7xl px-2 py-1 lg:px-10">
                     <hr className="my-8" />
