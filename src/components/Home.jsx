@@ -152,18 +152,23 @@ function Home() {
     };
     return (
         <>
-            <div className='bg-pink-200 p-8 md:hidden lg:hidden xl:hidden 2xl:hidden' style={{paddingBottom:401}}>
+            <div className='bg-pink-200 p-8 md:hidden lg:hidden xl:hidden 2xl:hidden' style={{paddingBottom:200}}>
                 <div className='pt-20'></div>
                 <div className='p-8 flex justify-center' style={{ backgroundColor: '#FFEEF4', borderRadius:200 }}>
                     <img src={logo} style={{ width: 400 }} alt="Shaajo's Creation" />
                 </div>
                 <h1 className="text-2xl font-bold text-center mt-5">
-                    Sparkle, shine, and shop on the fly with<br /> <span className="text-pink-600">Shaajo's Creation</span>!
+                    Sparkle | Shine | Shop <br /> <span className="text-pink-600 mt-4">Shaajo's Creation!<br /><br /></span>
                 </h1>
-                <h2 className="text-lg font-bold text-center">
-                    Our dazzling jewelry collection is getting ready to adorn your mobile screens. Get your glam on because soon, the bling is just a touch away!
+                <h2 className="text-lg text-center font-bold">
+                    Our dazzling collection is getting ready, <br/> to adorn Your Mobile Screens. 
                 </h2>
-
+                <h2 className="text-lg text-center font-bold mt-3">
+                    Our futuristic dream-weavers are conjuring a mesmerizing, mind-bending Mobile App, destined to catapult your shopping escapades into the outer realms of seamless awesomeness!
+                </h2>
+                <h2 className="text-lg text-center mt-8 font-bold">
+                    Get your glam on, the bling is just a touch away!
+                </h2>
             </div>
 
             <div className='hidden lg:block'>
