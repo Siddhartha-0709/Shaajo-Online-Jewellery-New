@@ -152,7 +152,7 @@ function Home() {
     };
     return (
         <>
-            <div className='bg-pink-200 p-8 md:hidden lg:hidden xl:hidden 2xl:hidden'>
+            <div className='bg-pink-200 p-8 md:hidden lg:hidden xl:hidden 2xl:hidden' style={{paddingBottom:401}}>
                 <div className='pt-20'></div>
                 <div className='p-8 flex justify-center' style={{ backgroundColor: '#FFEEF4', borderRadius:200 }}>
                     <img src={logo} style={{ width: 400 }} alt="Shaajo's Creation" />
@@ -163,6 +163,7 @@ function Home() {
                 <h2 className="text-lg font-bold text-center">
                     Our dazzling jewelry collection is getting ready to adorn your mobile screens. Get your glam on because soon, the bling is just a touch away!
                 </h2>
+
             </div>
 
             <div className='hidden lg:block'>
