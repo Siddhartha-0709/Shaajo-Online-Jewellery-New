@@ -72,6 +72,14 @@ function Header() {
                 Track Orders
               </Link>
             </li>
+            <li>
+              <Link
+                to="/upload"
+                className="text-sm font-semibold text-gray-800 hover:text-gray-900 hidden"
+              >
+                Upload
+              </Link>
+            </li>
           </ul>
         </div>
 
