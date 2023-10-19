@@ -41,50 +41,55 @@ export default function Upload() {
     const [productImage, setProductImage] = useState();
     const [url, setUrl] = useState('');
     const [progress, setProgrss] = useState(false);
-    const colors = ['White', 'Navy 1Blue', 'Brown', 'Green', 'Purple', 'Orange', 'Metallic Silver','Red','Golden', 'Pink','Silver','Yellow','Black'];
+    const colors = ['White', 'Navy 1Blue', 'Brown', 'Green', 'Purple', 'Orange', 'Metallic Silver', 'Red', 'Golden', 'Pink', 'Silver', 'Yellow', 'Black'];
     const categories = ['New Arrivals', 'Earrings', 'Necklace', 'Others', 'Set', 'Oxidized'];
-
+    const [pwd, setPwd] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const productsRef = ref(database, 'products');
-        const storageRef = sref(storage, productImage.name);
-        const uploadTask = uploadBytesResumable(storageRef, productImage);
-        uploadTask.on(
-            "state_changed",
-            (snapshot) => {
-                var progress = Math.round(
-                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-                );
-                setProgrss(true);
-            },
-            (err) => {
-                console.log(err);
-            },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                    setUrl(url);
-                    console.log(url);
-                    push(productsRef, {
-                        name: productName,
-                        price: productPrice,
-                        description: productDescription,
-                        color: productColor,
-                        category: productCategory,
-                        imageUrl: url,
-                    }).then(() => {
-                        alert('Upload Complete');
-                        setProgrss(false);
+        if (pwd === 'shaajo') {
+            const productsRef = ref(database, 'products');
+            const storageRef = sref(storage, productImage.name);
+            const uploadTask = uploadBytesResumable(storageRef, productImage);
+            uploadTask.on(
+                "state_changed",
+                (snapshot) => {
+                    var progress = Math.round(
+                        (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                    );
+                    setProgrss(true);
+                },
+                (err) => {
+                    console.log(err);
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+                        setUrl(url);
+                        console.log(url);
+                        push(productsRef, {
+                            name: productName,
+                            price: productPrice,
+                            description: productDescription,
+                            color: productColor,
+                            category: productCategory,
+                            imageUrl: url,
+                        }).then(() => {
+                            alert('Upload Complete');
+                            setProgrss(false);
+                        });
+                        setProductName('');
+                        setProductPrice('');
+                        setProductDescription([]);
+                        setProductColor([]);
+                        setProductCategory([]);
+                        setProductImage(null);
                     });
-                    setProductName('');
-                    setProductPrice('');
-                    setProductDescription([]);
-                    setProductColor([]);
-                    setProductCategory([]);
-                    setProductImage(null);
-                });
-            }
-        );
+                }
+            );
+        }
+        else{
+            alert('wrong password');
+        }
     };
 
 
@@ -99,6 +104,16 @@ export default function Upload() {
                 </div>) : <>
 
                     <form onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label htmlFor="productName" className='font-bold'>Admin Password</label>
+                            <input
+                                type="text"
+                                id="productName"
+                                value={pwd}
+                                onChange={(e) => setPwd(e.target.value)}
+                                className="w-full border rounded-md px-3 py-2"
+                            />
+                        </div>
                         <div className="mb-4">
                             <label htmlFor="productName" className='font-bold'>Product Name</label>
                             <input
